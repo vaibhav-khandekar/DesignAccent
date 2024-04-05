@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="ValidationForm.js"></script>
+</head>
+<body>
+    <form name="myForm" onsubmit="return validateForm()" method="post">
+        <label>Username : </label>
+        <input type="text" name="username"/><br/><br />
+
+        <label>Password : </label>
+        <input type="password" name="password"/><br/><br />
+
+        <label>Location : </label>
+        <select id="location">
+            <option value="0">City</option>
+            <option value="1">Mumbai</option>
+            <option value="2">Pune</option>
+            <option value="3">Nashik</option>
+            <option value="4">Nagpur</option>
+        </select><br /><br />
+
+        <label>Gender : </label>
+        <input type="radio" id="gender1" name="gender" value="Male"/>
+        <label>Male</label>
+        <input type="radio" id="gender2" name="gender" value="Female" />
+        <label>Female</label>
+        <br><br />
+
+        <label>Technologies : </label>
+        <input type="checkbox" id="python" name="tech" value="Python"/>
+        <label for="python">Python</label>
+        <input type="checkbox" id="sql" name="tech" value="SQL"/>
+        <label for="sql">SQL</label>
+        <input type="checkbox" id="stats" name="tech" value="Statistics"/>
+        <label for="stats">Statistics</label>
+        <input type="checkbox" id="java" name="tech" value="Java"/>
+        <label for="java">Java</label>
+        <br><br />
+        <input type="submit" value="Submit"/>
+    </form>
+</body>
+</html>

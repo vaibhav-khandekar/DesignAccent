@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace WebApplication2
 {
@@ -20,24 +21,31 @@ namespace WebApplication2
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //string path = @"";
-            byte[] imgData = System.IO.File.ReadAllBytes("C:/Vaibhav/1.png");
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-1KT7THJ\SQLEXPRESS;Initial Catalog=Employees;Integrated Security=True");
-            con.Open();
-            SqlCommand cmd = new SqlCommand("insert into iamges (image_data) values (@image_data)", con);
-            cmd.Parameters.AddWithValue("@image_data", imgData);
+            string fileName = Path.GetFileName(FileUpload1.PostedFile.FileName);
+            string path = Server.MapPath("/Images/" + fileName);
+            FileUpload1.SaveAs(path);
 
-            // Execute the command
-            int rowsAffected = cmd.ExecuteNonQuery();
+            byte[] imgData = FileUpload1.FileBytes;
+            using (SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-1KT7THJ\SQLEXPRESS;Initial Catalog=Vaibhav;Integrated Security=True"))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("INSERT INTO Images (image_data) VALUES (@image_data)", con))
+                {
+                    cmd.Parameters.AddWithValue("@image_data", imgData);
 
-            // Check if the insertion was successful
-            if (rowsAffected > 0)
-            {
-                Console.WriteLine("Image inserted successfully.");
-            }
-            else
-            {
-                Console.WriteLine("Failed to insert image.");
+                    // Execute the command
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    // Check if the insertion was successful
+                    if (rowsAffected > 0)
+                    {
+                        Response.Write("Image inserted successfully.");
+                    }
+                    else
+                    {
+                        Response.Write("Failed to insert image.");
+                    }
+                }
             }
         }
     }

@@ -7,24 +7,35 @@ function validate()
         return false;
     }
 
-    // email address
+    /* email address validation
     let email = document.forms["Jerai_form"]["txtEmail"].value;
     if (email == "") {
         alert("please enter email address");
         return false;
+    }*/
+
+    // email address validation using regex
+    let email = document.forms["Jerai_form"]["txtEmail"].value;
+    var regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+    if (!regexEmail.test(email)) {
+        alert('please enter a valid email address');
+        email.focus;
+        return false;
     }
 
-    // phone number
+    /* phone number validation
     let phone = document.forms["Jerai_form"]["txtMobile"].value;
     if(phone == "")
     {
         alert("please enter phone number");
         return false;
     }
+    */
 
-    var regExp = /^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}/;
-    var phone_reg = phone.match(regExp);
-    if (!(phone)) {
+    // phone number validation using regex
+    let phone = document.forms["Jerai_form"]["txtMobile"].value;
+    var regexPhone = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    if (!regexPhone.test(phone)) {
         alert('please enter valid phone number');
         return false;
     }

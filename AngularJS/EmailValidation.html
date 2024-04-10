@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Email Validation</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <form ng-app="" name="form">
+        <h1>Email Validation</h1>
+        <label>Email:</label>
+        <input type="email" name="myAddress" ng-model="email" />
+        <span ng-show="form.myAddress.$error.email">please enter valid email address</span>
+    </form>
+</body>
+</html>

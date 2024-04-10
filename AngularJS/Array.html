@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Array</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div ng-app="" ng-init="array = [11,22,33,44,55,66,77,88,99]">
+        <h1>AngularJS Arrays</h1>
+        <h3>array = [11,22,33,44,55,66,77,88,99]</h3>
+        <p>first element is <span ng-bind="array[0]"></span></p>
+        <p>last element is {{array[[array.length]-1]}}</p>
+    </div>
+</body>
+</html>

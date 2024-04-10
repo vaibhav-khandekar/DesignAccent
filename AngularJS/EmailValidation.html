@@ -9,8 +9,14 @@
     <form ng-app="" name="form">
         <h1>Email Validation</h1>
         <label>Email:</label>
-        <input type="email" name="myAddress" ng-model="email" />
+        <input type="email" name="myAddress" ng-model="email" required/>
+        <input type="submit" name="submit"/>
         <span ng-show="form.myAddress.$error.email">please enter valid email address</span>
+
+        <!-- CSS classes -->
+        <p>Valid : {{form.myAddress.$valid}}</p>
+        <p>Dirty : {{form.myAddress.$dirty}}</p>
+        <p>Touch : {{form.myAddress.$touched}}</p>
     </form>
 </body>
 </html>

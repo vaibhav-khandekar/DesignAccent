@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Repeated Elements Object</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div ng-app="" ng-init="list=[{name:'Vaibhav',location:'Mumbai'},
+         {name:'Vivek',location:'Pune'},{name:'Vishal',location:'Delhi'},
+         {name:'Vaibhavi',location:'Hyderabad'},{name:'Vikas',location:'Banglore'}]">
+        <h1>Repeated Elements by Object</h1>
+        <ul>
+            <li ng-repeat="i in list">
+                {{i.name + ", " + i.location}}
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

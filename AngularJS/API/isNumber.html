@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>isNumber</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div ng-app="isNumberApp" ng-controller="isNumberCtrl">
+        <h2>{{x1}}</h2>
+        <h2>{{x2}}</h2>
+        <h2>{{x3}}</h2>
+        <h2>{{x4}}</h2>
+    </div>
+
+    <script>
+        var app = angular.module("isNumberApp", []);
+        app.controller("isNumberCtrl", function ($scope) {
+            $scope.x1 = "Vaibhav Khandekar";
+            $scope.x2 = angular.isNumber($scope.x1);
+            $scope.x3 = 4150;
+            $scope.x4 = angular.isNumber($scope.x3);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Custom Service</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div ng-app="customServiceApp" ng-controller="customServiceCtrl">
+        <label>Number: </label>
+        <input type="number" ng-model="ipnum"/>
+        <input ng-click="convertToHex()" type="submit"/>
+        <h2>hexadecimal conversion: {{hex}}</h2>
+    </div>
+
+    <script>
+        var app = angular.module("customServiceApp", []);
+
+        app.service('hexadecimal', function() {
+            this.myFunc = function(x) {
+                return x.toString(16);
+            }
+        });
+
+        app.controller("customServiceCtrl", function ($scope, hexadecimal) {
+            $scope.ipnum = "";
+            $scope.hex = "";
+
+            $scope.convertToHex = function () {
+                $scope.hex = hexadecimal.myFunc($scope.ipnum);
+            };
+        });
+    </script>
+</body>
+</html>

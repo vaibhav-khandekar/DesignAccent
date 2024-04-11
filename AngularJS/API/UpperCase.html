@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>UpperCase API</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div ng-app="upperCaseApp" ng-controller="upperCaseCtrl">
+        <h2>{{x1}}</h2>
+        <h2>{{x2}}</h2>
+    </div>
+
+    <script>
+        var app = angular.module("upperCaseApp", []);
+        app.controller("upperCaseCtrl", function ($scope) {
+            $scope.x1 = "Vaibhav Khandekar";
+            $scope.x2 = angular.uppercase($scope.x1);
+        });
+    </script>
+</body>
+</html>

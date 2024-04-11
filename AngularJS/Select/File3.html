@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>AngularJS Select 3.0</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div ng-app="select3App" ng-controller="select3Ctrl">
+        <h1>select a car</h1>
+        <select ng-model="selectedCar" ng-options="x for (x,y) in cars">
+        </select>
+
+        <h1>You selected:{{selectedCar.brand}}</h1>
+        <h2>Model:{{selectedCar.model}}</h2>
+        <h2>Color:{{selectedCar.color}}</h2>
+    </div>
+
+    <script>
+        var app = angular.module("select3App", []);
+        app.controller("select3Ctrl", function ($scope) {
+            $scope.cars = {
+                car1: { brand: "VolkSwagen", model: "Polo", color: "Red" },
+                car2: { brand: "Maruti Suzuki", model: "Swift", color: "White" },
+                car3: { brand: "BMW", model: "x5", color: "Black" },
+                car4: { brand: "Toyota", model: "Innova", color: "Silver" },
+                car5: { brand: "Ford", model: "Mustang", color: "Yellow" }};
+        });
+    </script>
+</body>
+</html>

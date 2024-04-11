@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>AngularJS Filters</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div ng-app="filterApp" ng-controller="filterCtrl">
+        <h1>implemented all AngularJS filters</h1>
+        <h3>Name: {{name | uppercase}}</h3>
+        <h3>Domain: {{domain | lowercase}}</h3>
+        <h3>Salary: {{salary | currency}}</h3>
+        <h3>DOB: {{dob | date}}</h3>
+        <h3>Phone: {{phone | number}}</h3>
+        
+        <h3>OrderBy location: </h3>
+        <ul ng-repeat="i in list | orderBy:'location'">
+            <li>
+                {{i.name + ", " + i.location}}
+            </li>
+        </ul>
+        <h3>Filter by in names: </h3>
+        <input type="text" ng-model="test"/>
+        <ul ng-repeat="i in list | filter:test">
+            <li>
+                {{i.name + ", " + i.location}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        var app = angular.module("filterApp", []);
+        app.controller("filterCtrl", function ($scope) {
+            $scope.name = "Vaibhav Khandekar";
+            $scope.domain = "Backend Developer";
+            $scope.salary = 10000;
+            $scope.dob = 01 / 01 / 2000;
+            $scope.phone = 0123456789;
+            $scope.list = [{ name: 'Vaibhav', location: 'Mumbai' },
+                { name: 'Vaibhavi', location: 'Pune' },
+                { name: 'Vikas', location: 'Delhi' },
+                { name: 'Vivek', location: 'Hyderabad' }];
+        });
+    </script>
+</body>
+</html>

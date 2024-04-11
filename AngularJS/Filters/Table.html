@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Table</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div ng-app="tableApp" ng-controller="tableCtrl">
+        <h1>click on table headers to arrange in sorting order</h1>
+        <table border="1" width="50%">
+            <tr>
+                <th ng-click="orderByMe('name')">Name</th>
+                <th ng-click="orderByMe('location')">Location</th>
+            </tr>
+            <tr ng-repeat="i in list | orderBy : myOrderBy">
+                <td>{{i.name}}</td>
+                <td>{{i.location}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        var app = angular.module("tableApp", []);
+        app.controller("tableCtrl", function ($scope) {
+            $scope.list = [{ name: 'Vaibhav', location: 'Malad' },
+                { name: 'Vikas', location: 'Mahim' },
+                { name: 'Rajesh', location: 'Delhi' },
+                { name: 'Vivek', location: 'Hyderabad' },
+                { name: 'Kanhaiya', location: 'Meera Road' },
+                { name: 'Alok', location: 'Goregaon' },
+                { name: 'Shashi', location: 'Bandra' },
+                { name: 'Sushil', location: 'Ghatkoper' },
+                { name: 'Vaibhavi', location: 'Villeparle' },
+                { name: 'Himanshu', location: 'Vasai' },
+                { name: 'Abhishek', location: 'Kandivali' },
+                { name: 'Isha', location: 'Borivali' }];
+            $scope.orderByMe = function (i) {
+                $scope.myOrderBy = i;
+            }
+        });
+    </script>
+</body>
+</html>

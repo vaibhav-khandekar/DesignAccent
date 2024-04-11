@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Mouse Click</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div ng-app="mouseClickApp" ng-controller="mouseClickCtrl">
+        <button type="submit" ng-click="count = count + 1">Click Me</button>
+        <h2>{{count}}</h2>
+    </div>
+
+    <script>
+        var app = angular.module("mouseClickApp", []);
+        app.controller("mouseClickCtrl", function ($scope) {
+            $scope.count = 0;
+        });
+    </script>
+</body>
+</html>

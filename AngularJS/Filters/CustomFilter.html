@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Custom Filter</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div ng-app="customFilterApp" ng-controller="customFilterCtrl">
+        <h1>Implemented Custom Filter to Uppercase odd-digit characters from a list of name </h1>
+        <ul ng-repeat="i in list">
+            <li>{{i | myFilter}}</li>
+        </ul>
+    </div>
+
+    <script>
+        var app = angular.module("customFilterApp", []);
+
+        app.filter("myFilter", function() {
+            return function(x) {
+                var i, c, txt = "";
+                for (i = 0; i < x.length; i++) {
+                    c = x[i];
+                    if (i%2 == 0) {
+                        c = c.toUpperCase();
+                    }
+                    txt += c;
+                }
+                return txt;
+            };
+        });
+
+        app.controller("customFilterCtrl", function ($scope) {
+            $scope.list = ['vaibhav','vikas','rajesh','vivek','kanhaiya','alok','shashi','sushil','vaibhavi','himanshu','abhishek','isha'];
+        });
+    </script>
+</body>
+</html>

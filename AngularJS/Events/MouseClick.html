@@ -9,12 +9,19 @@
     <div ng-app="mouseClickApp" ng-controller="mouseClickCtrl">
         <button type="submit" ng-click="count = count + 1">Click Me</button>
         <h2>{{count}}</h2>
+
+        <button type="submit" ng-click="myFunc()">Click Me 2.0</button>
+        <h2>{{count2}}</h2>
     </div>
 
     <script>
         var app = angular.module("mouseClickApp", []);
         app.controller("mouseClickCtrl", function ($scope) {
             $scope.count = 0;
+            $scope.count2 = 0;
+            $scope.myFunc = function () {
+                $scope.count2++;
+            }
         });
     </script>
 </body>

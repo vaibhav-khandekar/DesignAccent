@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>AngularJS Form</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div ng-app="angularFormApp" ng-controller="angularFormCtrl">
+        <form novalidate>
+            <label>First Name: </label>
+            <input type="text" ng-model="user.firstName"/><br /><br />
+            <label>Last Name: </label>
+            <input type="text" ng-model="user.lastName"/>
+            <button ng-click="reset()">Reset</button>
+        </form>
+
+        <h2>form = {{user}}</h2>
+        <h2>master = {{master}}</h2>
+    </div>
+
+    <script>
+        var app = angular.module("angularFormApp", []);
+        app.controller("angularFormCtrl", function ($scope) {
+            $scope.master = { firstName: "Vaibhav", lastName: "Khandekar" };
+            $scope.reset = function () {
+                $scope.user = angular.copy($scope.master);
+            };
+            $scope.reset();
+        });
+    </script>
+</body>
+</html>

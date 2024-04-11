@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Radio Buttons</title>
+	<meta charset="utf-8" />
+</head>
+<body ng-app="">
+    <h1>select from following: </h1>
+    <input type="radio" ng-model="myVar" value="bikes">Bikes
+    <input type="radio" ng-model="myVar" value="cars">Cars
+    <input type="radio" ng-model="myVar" value="dogs">Dogs
+    <input type="radio" ng-model="myVar" value="cats">Cats
+
+    <div ng-switch="myVar">
+        <div ng-switch-when="bikes">
+            <h2>Bikes</h2>
+            <p>you have selected bikes</p>
+        </div>
+        <div ng-switch-when="cars">
+            <h2>Cars</h2>
+            <p>you have selected cars</p>
+        </div>
+        <div ng-switch-when="dogs">
+            <h2>Dogs</h2>
+            <p>you have selected dogs</p>
+        </div>
+        <div ng-switch-when="cats">
+            <h2>Cats</h2>
+            <p>you have selected cats</p>
+        </div>
+    </div>
+</body>
+</html>

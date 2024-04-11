@@ -5,13 +5,11 @@
     <title>RootScope</title>
 	<meta charset="utf-8" />
 </head>
-<body>
-    <div ng-app="myApp">
-        <p>The rootScope's favorite car:</p>
-        <h1>{{car}}</h1>
-    </div>
+<body ng-app="myApp">
+    <p>The rootScope's favorite car:</p>
+    <h1>{{car}}</h1>
 
-    <div ng-controller="myCtrl">
+    <div ng-controller="myCtrlRS">
         <p>The scope of the controller's favorite car:</p>
         <h1>{{car}}</h1>
     </div>
@@ -20,11 +18,11 @@
     <h1>{{car}}</h1>
 
     <script>
-        var app = angular.module("myApp", []);
+        var app = angular.module('myApp', []);
         app.run(function ($rootScope) {
             $rootScope.car = 'PoloGT';
         });
-        app.controller("myCtrl", function($scope) {
+        app.controller('myCtrlRS', function($scope) {
             $scope.car = "VirtusGT";
         });
     </script>

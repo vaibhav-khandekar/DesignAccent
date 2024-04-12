@@ -21,6 +21,6 @@
 - started AngularJS tutorial from w3schools.com
 - done with AngularJS basics and implemented AngularJS expressions in applications
 
-- ### Day 6
+### Day 6
 - completed AngularJS tutorial from w3schools.com
-- done with Select, Services, Form, Filters, Events, DOM and APIs
+- done with Select, Services, Forms, Filters, Events, DOM and APIs

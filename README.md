@@ -16,3 +16,11 @@
 ### Day 4
 - Uploading image into SQL
 - Validation Form - upliftjeraifitness.com
+
+### Day 5
+- started AngularJS tutorial from w3schools.com
+- done with AngularJS basics and implemented AngularJS expressions in applications
+
+- ### Day 6
+- completed AngularJS tutorial from w3schools.com
+- done with Select, Services, Form, Filters, Events, DOM and APIs

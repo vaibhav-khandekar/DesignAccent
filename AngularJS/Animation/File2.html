@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @keyframes myChange {
+            from {
+                height: 100px;
+            }
+
+            to {
+                height: 0;
+            }
+        }
+
+        div {
+            height: 100px;
+            background-color: lightblue;
+        }
+
+            div.ng-hide {
+                animation: 1.0s myChange;
+            }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Animation 2.0</title>
+	<meta charset="utf-8" />
+</head>
+<body ng-app="ngAnimate2App">
+    <h2>hide the div: <input type="checkbox" ng-model="checked"/></h2>
+    <div ng-hide="checked"></div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+
+    <script>
+        var app = angular.module("ngAnimate2App", ["ngAnimate"]);
+    </script>
+
+</body>
+</html>

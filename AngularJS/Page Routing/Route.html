@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <title>AngularJS routing</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div ng-app="routeApp" ng-controller="routeCtrl">
+        <h1>Please select color of heading from the following buttons</h1>
+        <button ng-click="changeRoute('/')">RESET</button>&nbsp;&nbsp;&nbsp;
+        <button ng-click="changeRoute('/red')">RED</button>&nbsp;&nbsp;&nbsp;
+        <button ng-click="changeRoute('/green')">GREEN</button>&nbsp;&nbsp;&nbsp;
+        <button ng-click="changeRoute('/blue')">BLUE</button>
+    </div>
+
+    <script>
+        var app = angular.module("routeApp", ["ngRoute"]);
+        app.config(function ($routeProvider) {
+            $routeProvider
+            .when("/", {
+                templateUrl: "main.html",
+                controller: 'routeCtrl'
+            })
+             .when("/red", {
+                 templateUrl: "red.html",
+                 controller: 'routeCtrl'
+             })
+             .when("/green", {
+                 templateUrl: "green.html",
+                 controller: 'routeCtrl'
+             })
+             .when("/blue", {
+                 templateUrl: "blue.html",
+                 controller: 'routeCtrl'
+             })
+        });
+        app.controller("routeCtrl", function ($scope, $location) {
+            $scope.changeRoute = function (route) {
+                $location.path(route);
+            };
+
+
+        });
+    </script>
+</body>
+</html>

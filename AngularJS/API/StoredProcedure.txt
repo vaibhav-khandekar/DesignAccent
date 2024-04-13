@@ -1,0 +1,43 @@
+USE [CRUDTutorialDB]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_Customer]    Script Date: 13-04-2024 12:32:11 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROC [dbo].[SP_Customer](
+@Action varchar(100)= NULL,
+@ID int= NULL,
+@full_name varchar(100)= NULL,
+@contact_no varchar(100)= NULL,
+@email_id varchar(100)= NULL,
+@gender varchar(100)= NULL,
+@city varchar(100)= NULL,
+@age varchar(100)= NULL,
+@query varchar(100)= NULL
+)
+AS
+BEGIN
+	IF @Action = 'INSERT'
+	BEGIN
+		INSERT INTO tbl_Customer(full_name,contact_no,email_id,gender,city,age,query,date)
+		VALUES(@full_name,@contact_no,@email_id,@gender,@city,@age,@query,CAST(GETDATE() as Date));
+	END
+	ELSE IF @Action = 'UPDATE'
+	BEGIN
+		UPDATE tbl_Customer 
+		SET full_name=@full_name,contact_no=@contact_no,email_id=@email_id,gender=@gender,city=@city,age=@age,query=@query
+		WHERE ID=@ID;
+	END
+	ELSE IF @Action = 'DELETE'
+	BEGIN
+		UPDATE tbl_Customer SET IsDelete = 1 
+		WHERE ID=@ID;
+	END
+	ELSE IF @Action = 'SELECT'
+	BEGIN
+		SELECT ID,full_name,contact_no,email_id,gender,city,age,query FROM  tbl_Customer 
+		WHERE  IsDelete = 0;
+	END
+END
+

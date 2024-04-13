@@ -17,23 +17,20 @@ namespace Employees.BAL
             objEmpDTO = objEmpDAL.GetEmployeeDetails();
             return objEmpDTO;
         }
-
-        /*
-        public EmployeesDTO AddEmployeeDetails(string ModelName)
+        public EmployeesDTO AddEmployeeDetails(string EmpName, string EmpSalary, string EmpAge)
         {
-            objEmpDTO = objEmpDAL.AddEmployeeDetails(ModelName);
+            objEmpDTO = objEmpDAL.AddEmployeeDetails(EmpName, EmpSalary, EmpAge);
             return objEmpDTO;
         }
-        public EmployeesDTO UpdateEmployeeDetails(string ModelID, string ModelName)
+        public EmployeesDTO UpdateEmployeeDetails(int EmpID, string EmpName, string EmpSalary, string EmpAge)
         {
-            objEmpDTO = objEmpDAL.UpdateEmployeeDetails(ModelID, ModelName);
+            objEmpDTO = objEmpDAL.UpdateEmployeeDetails(EmpID, EmpName, EmpSalary, EmpAge);
             return objEmpDTO;
         }
-        public EmployeesDTO DeleteEmployeeDetails(string ModelID)
+        public EmployeesDTO DeleteEmployeeDetails(int EmpID)
         {
-            objEmpDTO = objEmpDAL.DeleteEmployeeDetails(ModelID);
+            objEmpDTO = objEmpDAL.DeleteEmployeeDetails(EmpID);
             return objEmpDTO;
         }
-        */
     }
 }

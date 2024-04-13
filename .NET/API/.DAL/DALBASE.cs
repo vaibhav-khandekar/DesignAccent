@@ -1,0 +1,67 @@
+using Microsoft.Practices.EnterpriseLibrary.Data;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Employees.DAL
+{
+    public class DALBASE
+    {
+        public Database db = null;
+        public Database dbExcel1 = null;
+        public Database dbExcel2 = null;
+        public DbCommand command = null;
+
+
+        public DALBASE()
+        {
+            DatabaseProviderFactory factory = new DatabaseProviderFactory();
+            db = factory.Create("constr");
+        }
+        public void ErrorLog(string MethodName, string ClassName, string Message)
+        {
+            using (command = db.GetStoredProcCommand("SP_RequestResponseLog"))
+            {
+                db.AddInParameter(command, "@MethodName", DbType.String, MethodName);
+                db.AddInParameter(command, "@ClassName", DbType.String, ClassName);
+                db.AddInParameter(command, "@Exception", DbType.String, Message);
+                try
+                {
+                    IDataReader reader = db.ExecuteReader(command);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+        private bool disposed = false;
+
+        public void Disposed()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                }
+                if (db != null)
+                    db = null;
+                disposed = true;
+            }
+        }
+
+        ~DALBASE()
+        {
+            Dispose(false);
+        }
+    }
+}

@@ -1,0 +1,33 @@
+USE [Vaibhav]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_Customer]    Script Date: 13-04-2024 12:32:11 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROC [dbo].[SP_EmpData](
+@Action varchar(100)= NULL,
+@EmpID int= NULL,
+@EmpName varchar(100)= NULL,
+@EmpSalary varchar(100)= NULL,
+@EmpAge varchar(100)= NULL
+)
+AS
+BEGIN
+	IF @Action = 'INSERT'
+	BEGIN
+		INSERT INTO Employee(EmpID,EmpName,EmpSalary,EmpAge) VALUES(@EmpID,@EmpName,@EmpSalary,@EmpAge);
+	END
+	ELSE IF @Action = 'UPDATE'
+	BEGIN
+		UPDATE Employee SET EmpName=@EmpName,EmpSalary=@EmpSalary,EmpAge=@EmpAge WHERE EmpID=@EmpID;
+	END
+	ELSE IF @Action = 'DELETE'
+	BEGIN
+		UPDATE Employee SET IsDelete = 1 WHERE EmpID=@EmpID;
+	END
+	ELSE IF @Action = 'SELECT'
+	BEGIN
+		SELECT 'SUCCESS'[Retval],EmpID,EmpName,EmpSalary,EmpAge FROM  Employee WHERE IsDelete = 0;
+	END
+END

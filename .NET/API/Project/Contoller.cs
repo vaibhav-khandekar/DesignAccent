@@ -13,8 +13,8 @@ namespace Employees.Controllers
     public class EmployeesController : Controller
     {
         // GET: Employees
-        EmployeesBAL objCarModelBAL = new EmployeesBAL();
-        EmployeesDAL objCarModelDAL = new EmployeesDAL();
+        EmployeesBAL objEmpBAL = new EmployeesBAL();
+        EmployeesDAL objEmpDAL = new EmployeesDAL();
         string Request = "";
         string Response = "";
         string Exception = "";
@@ -26,7 +26,7 @@ namespace Employees.Controllers
             string MethodName = MethodBase.GetCurrentMethod().Name;
             try
             {
-                retobj = Json(objCarModelBAL.GetEmployeeDetails(), JsonRequestBehavior.AllowGet);
+                retobj = Json(objEmpBAL.GetEmployeeDetails(), JsonRequestBehavior.AllowGet);
                 retobj.MaxJsonLength = int.MaxValue;
                 Response = new JavaScriptSerializer().Serialize(retobj);
             }
@@ -41,15 +41,13 @@ namespace Employees.Controllers
             }
             return retobj;
         }
-
-        /*
-        public JsonResult AddEmployeeDetails(string ModelName)
+        public JsonResult AddEmployeeDetails(string EmpName, string EmpSalary, string EmpAge)
         {
             string ClassName = MethodBase.GetCurrentMethod().DeclaringType.Name;
             string MethodName = MethodBase.GetCurrentMethod().Name;
             try
             {
-                retobj = Json(objCarModelBAL.AddEmployeeDetails(ModelName), JsonRequestBehavior.AllowGet);
+                retobj = Json(objEmpBAL.AddEmployeeDetails(EmpName, EmpSalary, EmpAge), JsonRequestBehavior.AllowGet);
                 retobj.MaxJsonLength = int.MaxValue;
                 Response = new JavaScriptSerializer().Serialize(retobj);
             }
@@ -64,13 +62,13 @@ namespace Employees.Controllers
             }
             return retobj;
         }
-        public JsonResult UpdateEmployeeDetails(string ModelID, string ModelName)
+        public JsonResult UpdateEmployeeDetails(int EmpID, string EmpName, string EmpSalary, string EmpAge)
         {
             string ClassName = MethodBase.GetCurrentMethod().DeclaringType.Name;
             string MethodName = MethodBase.GetCurrentMethod().Name;
             try
             {
-                retobj = Json(objCarModelBAL.UpdateEmployeeDetails(EmpID, EmpName), JsonRequestBehavior.AllowGet);
+                retobj = Json(objEmpBAL.UpdateEmployeeDetails(EmpID, EmpName, EmpSalary, EmpAge), JsonRequestBehavior.AllowGet);
                 retobj.MaxJsonLength = int.MaxValue;
                 Response = new JavaScriptSerializer().Serialize(retobj);
             }
@@ -85,13 +83,13 @@ namespace Employees.Controllers
             }
             return retobj;
         }
-        public JsonResult DeleteEmployeeDetails(string ModelID)
+        public JsonResult DeleteEmployeeDetails(int EmpID)
         {
             string ClassName = MethodBase.GetCurrentMethod().DeclaringType.Name;
             string MethodName = MethodBase.GetCurrentMethod().Name;
             try
             {
-                retobj = Json(objCarModelBAL.DeleteEmployeeDetails(EmpID), JsonRequestBehavior.AllowGet);
+                retobj = Json(objEmpBAL.DeleteEmployeeDetails(EmpID), JsonRequestBehavior.AllowGet);
                 retobj.MaxJsonLength = int.MaxValue;
                 Response = new JavaScriptSerializer().Serialize(retobj);
             }
@@ -106,6 +104,5 @@ namespace Employees.Controllers
             }
             return retobj;
         }
-        */
     }
 }

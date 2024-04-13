@@ -16,18 +16,27 @@ AS
 BEGIN
 	IF @Action = 'INSERT'
 	BEGIN
-		INSERT INTO Employee(EmpID,EmpName,EmpSalary,EmpAge) VALUES(@EmpID,@EmpName,@EmpSalary,@EmpAge);
+		INSERT INTO Employee(EmpName,EmpSalary,EmpAge) VALUES(@EmpName,@EmpSalary,@EmpAge);
+		BEGIN
+		SELECT 'SUCCESS'[Retval]
+		END
 	END
 	ELSE IF @Action = 'UPDATE'
 	BEGIN
 		UPDATE Employee SET EmpName=@EmpName,EmpSalary=@EmpSalary,EmpAge=@EmpAge WHERE EmpID=@EmpID;
+		BEGIN
+		SELECT 'SUCCESS'[Retval]
+		END
 	END
 	ELSE IF @Action = 'DELETE'
 	BEGIN
-		UPDATE Employee SET IsDelete = 1 WHERE EmpID=@EmpID;
+		UPDATE Employee SET isDelete = 1 WHERE EmpID=@EmpID;
+		BEGIN
+		SELECT 'SUCCESS'[Retval]
+		END
 	END
 	ELSE IF @Action = 'SELECT'
 	BEGIN
-		SELECT 'SUCCESS'[Retval],EmpID,EmpName,EmpSalary,EmpAge FROM  Employee WHERE IsDelete = 0;
+		SELECT 'SUCCESS'[Retval],EmpID,EmpName,EmpSalary,EmpAge FROM  Employee WHERE isDelete = 0;
 	END
 END

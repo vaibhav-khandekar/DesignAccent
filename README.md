@@ -24,3 +24,10 @@
 ### Day 6
 - completed AngularJS tutorial from w3schools.com
 - done with Select, Services, Forms, Filters, Events, DOM and APIs
+
+### Day 7
+- started learning APIs in .Net
+
+### Day 8
+- Completed learning of .Net APIs
+- created sample project on .Net APIs

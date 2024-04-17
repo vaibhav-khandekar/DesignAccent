@@ -86,6 +86,12 @@ function validate2() {
             return false;
         }
 
+        // points calculation
+        var level = parseInt(document.querySelector('input[name="rdoRunnerUpBodyBuilding"]:checked').value);
+        var champ = parseInt(document.querySelector('input[name="rdoAchievementsBodyBuilding"]:checked').value);
+        var totalPoints = level + champ;
+        document.getElementById("lblpoints").textContent = + totalPoints;
+
         // date of completion
         var dateInput = document.getElementById("txtdateOfBodyBuilding").value;
         if (dateInput === "") {
@@ -114,7 +120,7 @@ function validate2() {
         }
     }
 
-        // powerlifting tab
+    // powerlifting tab
     else if (tab2) {
 
         // weight classes for men
@@ -168,6 +174,8 @@ function validate2() {
             return false;
         }
     }
+
+    // if bodybuilding or weightlifting tab is unfilled
     else {
         // if not selected either body building or power lifting
         alert("please fill information from bodybuilding tab or power lifting tab");

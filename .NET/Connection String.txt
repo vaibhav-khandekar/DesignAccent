@@ -1,0 +1,4 @@
+<connectionStrings>
+    <add name="constr" connectionString="Data Source=DESKTOP-1KT7THJ\SQLEXPRESS;Initial Catalog=Vaibhav;Integrated Security=True"
+      providerName="System.Data.SqlClient" />
+</connectionStrings>

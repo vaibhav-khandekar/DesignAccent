@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Health Reactive</title>
+    <meta name="keywords" content="Health Reactive">
+    <meta name="description" content="Health Reactive">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+    <meta content="Health Reactive" name="author" />
+
+    <link href="assets/libs/dropzone/dropzone.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- App css -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/app.min.css" rel="stylesheet" type="text/css"  id="app-stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    </head>
+    
+<body class="left-side-menu-light" ng-app="addNewLeadApp" ng-controller="addNewLeadCtrl">
+    <!-- Begin page -->
+    <div id="wrapper">
+
+        <!-- Topbar Start -->
+
+        <div class="navbar-custom">
+            <div class="container-fluid">
+
+                <ul class="list-unstyled topnav-menu float-right mb-0">
+
+
+                    <li class="dropdown notification-list">
+                        <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <span class="pro-user-name ml-1">
+                                Admin  <i class="mdi mdi-chevron-down"></i>
+                            </span>
+                            <img src="assets/images/icons/user.png" alt="user-image" class="rounded-circle">
+
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                            <!-- item-->
+                            <div class="dropdown-header noti-title">
+                                <h6 class="text-overflow m-0">Welcome !</h6>
+                            </div>
+                            <!--<a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <i class="fe-user"></i>
+                            <span>Profile</span>
+                        </a>
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <i class="fe-settings"></i>
+                            <span>Settings</span>
+                        </a>
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <i class="fe-lock"></i>
+                            <span>Lock Screen</span>
+                        </a>-->
+
+                            <div class="dropdown-divider"></div>
+
+                            <!-- item-->
+                            <a href="index.html" class="dropdown-item notify-item">
+                                <i class="fe-log-out"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </li>
+
+                    <!--<li class="dropdown notification-list">
+                    <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">
+                        <i class="fe-settings noti-icon"></i>
+                    </a>
+                </li>-->
+
+                </ul>
+              
+                <!-- LOGO -->
+
+                <div class="logo-box">
+                    <a href="index.html" class="logo text-center">
+                        <span class="logo-lg">
+                            <img src="assets/images/logo.png" alt="" height="70">
+                            <!-- <span class="logo-lg-text-light">UBold</span> -->
+                        </span>
+                        <span class="logo-sm">
+                            <!-- <span class="logo-sm-text-dark">U</span> -->
+                            <img src="assets/images/icon-logo.png" alt="" height="70">
+                        </span>
+                    </a>
+                </div>
+
+                <!----Toggle Menu start-->
+
+                <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+                    <li>
+                     <button class="button-menu-mobile waves-effect waves-light">
+                     <i class="fe-menu"></i>
+                     </button>
+                    </li>
+                </ul>
+
+                <!----Toggle Menu end-->
+
+
+            </div>
+
+        </div>
+
+        <!-- end Topbar -->
+
+
+        <!-- ========== Left Sidebar Start ========== -->
+
+        <div class="left-side-menu">
+            <div class="slimscroll-menu">
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <ul class="metismenu" id="side-menu">
+                        <li class="menu-title">Menu</li>
+                        <li><a href="#"><i class="fe-airplay"></i><span> Dashboard </span></a></li>
+                        <li><a href="#"><i class="fe-upload"></i><span> Upload Data </span></a></li>
+                        <li><a href="#"><i class="fe-user-plus"></i><span> Add Manager </span></a> </li>
+                        <li><a href="#"><i class="fa fa-phone"></i><span> Add New Telecaller </span></a></li>
+                        <li><a href="#"><i class="mdi mdi-doctor"></i><span> Add New Doctor </span></a></li>
+                        <li><a href="#"><i class="fa fa-shipping-fast"></i><span> Add New Courier </span></a> </li>
+                        <li><a href="#"><i class="fe-file-text"></i><span> Reports </span></a></li>
+
+                        <!--<li>
+                            <a href="javascript: void(0);">
+                                <i class="fe-sidebar"></i>
+                                <span>Layouts </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="nav-second-level" aria-expanded="false">
+                                <li><a href="#">Horizontal</a></li>
+                            </ul>
+                        </li>-->
+                    </ul>
+                </div>
+                <!-- End Sidebar -->
+                <div class="clearfix"></div>
+            </div>
+            <!-- Sidebar -left -->
+        </div>
+
+        <!-- Left Sidebar End -->
+
+ 
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+        <form id="add-new-lead-form">
+        <div class="content-page">
+            <div class="content">
+
+                <!-- Start Content-->
+                <div class="container-fluid">
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box">
+                            <h4 class="page-title text-center"> Add New Lead</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <div class="card-box">
+                              
+                                <div class="row justify-content-start">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="txtName">Contact Person Name</label>
+                                            <input type="text" class="form-control" id="txtName" placeholder="Enter Contact Person Name">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="txtCity">City</label>
+                                            <input type="text" class="form-control" id="txtCity" placeholder="Enter City">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="txtAge">Age</label>
+                                            <input type="number" class="form-control" id="txtAge" placeholder="Enter Your Age">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <div class="form-group d-inline-block">
+                                            <label for="genderRadio">Gender</label>
+                                           
+                                                <div class="custom-control custom-radio">
+                                                    <input type="radio" id="male" name="genderRadio" class="custom-control-input">
+                                                    <label class="custom-control-label" for="male">Male</label>
+                                                </div>
+
+                                                <div class="custom-control custom-radio">
+                                                    <input type="radio" id="female" name="genderRadio" class="custom-control-input">
+                                                    <label class="custom-control-label" for="female">Female</label>
+                                                </div>
+                                           
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="txtSource">Source</label>
+                                            <input type="text" class="form-control" id="txtSource" placeholder="Enter Source">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtMobile">Mobile No.</label>
+                                            <input type="text" class="form-control" id="txtMobile" placeholder="Enter Mobile No.">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtEmail">Email Id</label>
+                                            <input type="email" class="form-control" id="txtEmail" placeholder="Enter Email Id">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="txtDate">Date</label>
+                                            <input type="text" class="form-control" id="txtDate" placeholder="Enter Date" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="textareaAddress">Address</label>
+                                            <textarea class="form-control" rows="3" id="textareaAddress" placeholder="Enter Your Address"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="textareaQuery">Query</label>
+                                            <textarea class="form-control" rows="3" id="textareaQuery" placeholder="Enter Your Query"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class=" form-group">
+                                            <label for="selectLeadStatus">Lead Status</label>
+                                            <select class="form-control" id="selectLeadStatus" ng-model="selectedLeadStatus">
+                                                <option value="0" selected>Next Follow Up</option>  
+                                                <option value="1">Process for Documents</option>
+                                                <option value="2">Process to Doctor</option>
+                                                <option value="3" >Converted</option>
+                                                <option value="4">Non-Converted</option>
+                                                <option value="5">Not Eligible</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class=" form-group">
+                                            <label for="selectLeadType">Lead Type</label>
+                                            <select class="form-control" id="selectLeadType">
+                                                <option value="0">Select Type</option>
+                                                <option value="1">Hot</option>
+                                                <option value="2">Warm</option>
+                                                <option value="3">Cold</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class=" form-group">
+                                            <label for="txtFollowUpDate">Next Follow Up Date</label>
+                                            <input type="date" class="form-control" id="txtFollowUpDate" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class=" form-group">
+                                            <label for="txtFollowUpTime">Next Follow Up Time</label>
+                                            <input type="time" class="form-control" id="txtFollowUpTime" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class=" form-group">
+                                            <label for="txtFeedback">Feedback</label>
+                                            <input type="text" class="form-control" id="txtFeedback" placeholder="Enter Feedback">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class=" form-group">
+                                            <label for="selectDoctor">Assign to Doctor</label>
+                                            <select class="form-control" id="selectDoctor">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                 <div ng-show="selectedLeadStatus === '3'" class="col-md-3">
+                                    <div>
+                                        <div class="form-group d-inline-block">
+                                            <label for="deliveryRadio">Delivery</label>
+
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="self-pickup" name="deliveryRadio" class="custom-control-input">
+                                                <label class="custom-control-label" for="self-pickup">self pickup</label>
+                                            </div>
+
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="courier" name="deliveryRadio" class="custom-control-input">
+                                                <label class="custom-control-label" for="courier">courier</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div>
+                                        <div class="form-group d-inline-block">
+                                            <label for="paymentRadio">Payment</label>
+
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="cod" name="paymentRadio" class="custom-control-input">
+                                                <label class="custom-control-label" for="cod">Cash On Delivery</label>
+                                            </div>
+
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="online-payment" name="paymentRadio" class="custom-control-input">
+                                                <label class="custom-control-label" for="online-payment">Online Payment</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div>
+                                        <div class="form-group d-inline-block">
+                                            <label for="offerRadio">Offer</label>
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" ng-model="selectedOffer" id="discounted" name="offerRadio" class="custom-control-input" ng-model="">
+                                                <label class="custom-control-label" for="discounted">Discounted</label>
+                                            </div>
+
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="mrp" ng-model="selectedOffer" name="offerRadio" class="custom-control-input">
+                                                <label class="custom-control-label" for="mrp">MRP</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                     <div ng-show="selectedOffer === 'discounted'">
+                                         <div class="col-md-3">
+                                             <div class="form-group">
+                                                 <label for="selectDiscount">Discounted</label>
+                                                 <select class="form-control" id="selectDiscount">
+                                                     <option value="1">5%</option>
+                                                     <option value="2">10%</option>
+                                                     <option value="3">15%</option>
+                                                     <option value="4">Up to 20%</option>
+                                                 </select>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     </div>
+
+                                    <div>
+                                        <div class="form-group">
+                                            <label for="txtReason">Reason</label>
+                                            <input type="text" class="form-control" id="txtReason" placeholder="Enter Reason">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="error" class="error">Please Contact Person Name</label>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-success btn-rounded width-md waves-effect waves-light" ng-click="validate()"><i class="mdi mdi-send mr-1"></i> Submit</button>
+                                    </div>
+
+                                    </div>
+                                
+                        </div>
+                        <!-- end col -->
+
+                        
+
+                    </div>
+                    <!-- end row -->
+
+                </div>
+
+                <!-- end container-fluid -->
+            </div>
+  
+            <!-- end content -->
+            <!-- Footer Start -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            ©<span id="getCurrentYear"></span> Health Reactive. All rights reserved. Designed and Developed by <a href="https://designaccent.in" target="_blank">Design Accent</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- end Footer -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- END wrapper -->
+    <!-- Vendor js -->
+    <script src="assets/js/vendor.min.js"></script>
+    <!--C3 Chart-->
+    <script src="assets/libs/d3/d3.min.js"></script>
+    <script src="assets/libs/c3/c3.min.js"></script>
+    <!--<script src="assets/libs/echarts/echarts.min.js"></script>-->
+    <script src="assets/js/pages/dashboard.init.js"></script>
+
+
+    <!-- Plugins js -->
+    <script src="assets/libs/dropzone/dropzone.min.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/app.min.js"></script>
+    <script>
+        document.getElementById("getCurrentYear").innerHTML = new Date().getFullYear();
+    </script>
+    <script src="assets/js/add-new-lead.js"></script>
+
+</body>
+
+
+</html>
